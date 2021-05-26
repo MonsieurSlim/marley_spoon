@@ -1,0 +1,8 @@
+.ui.basic.segment.very.padded
+
+    h2.ui.header Recipes
+
+    .ui.cards
+      - @recipes.each do |recipe|
+        = link_to recipe_path(slug: recipe.id), class: 'ui card' do
+          = render partial: 'recipes/card_content', locals: { recipe: recipe }

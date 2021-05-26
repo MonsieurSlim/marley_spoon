@@ -1,0 +1,7 @@
+.content
+  .header
+    span style='font-size: 110%' = @recipe.title
+
+  = image_tag(@recipe.photo.url)
+  = @recipe.description
+  = @recipe.tags.collect(&:name)
