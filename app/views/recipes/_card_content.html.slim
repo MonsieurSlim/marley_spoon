@@ -1,5 +1,4 @@
+.image
+  = image_tag(recipe.photo.url)
 .content
-  .image
-    = image_tag(recipe.photo.url)
-  .header
-    span style='font-size: 110%' = recipe.title
+  .header= recipe.title

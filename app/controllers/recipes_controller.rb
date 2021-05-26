@@ -12,9 +12,11 @@ class RecipesController < ApplicationController
   def load_resource
     case action_name
     when "index"
-      @recipes = client.entries(content_type: "recipe", include: 1)
+      @recipes = client.entries(content_type: "recipe", skip: skip_content, limit: per_page)
+      @total = @recipes.total
     when "show"
       @recipe = client.entry(params[:slug])
+      @chefs = client.entries(content_type: "chef").collect(&:name)
     end
   end
 end

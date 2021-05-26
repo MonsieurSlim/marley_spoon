@@ -1,8 +1,17 @@
 .ui.basic.segment.very.padded
-
+  .ui.container
     h2.ui.header Recipes
 
-    .ui.cards
+    .ui.four.cards
       - @recipes.each do |recipe|
-        = link_to recipe_path(slug: recipe.id), class: 'ui card' do
+        = link_to recipe_path(slug: recipe.id), class: 'card' do
           = render partial: 'recipes/card_content', locals: { recipe: recipe }
+
+    - if pages > 1
+      .ui.basic.segment
+        .ui.pagination.menu
+          - (pages).times do |idx|
+            - display = (idx+1)
+            = link_to recipes_path(page: display), class: "item #{('active' if current_page == display)}" do
+              = display
+

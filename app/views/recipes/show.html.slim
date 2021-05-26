@@ -1,7 +1,40 @@
-.content
-  .header
-    span style='font-size: 110%' = @recipe.title
+.ui.basic.segment.very.padded
+  .ui.text.container
+    = link_to :back, class: "ui left labeled icon primary basic button" do
+      i.left.arrow.icon
+      | Back to recipes
 
-  = image_tag(@recipe.photo.url)
-  = @recipe.description
-  = @recipe.tags.collect(&:name)
+    - if @recipe
+      h2.ui.header= @recipe.title
+
+      .ui.fluid.card
+        - if @recipe&.photo&.url
+          .image=image_tag(@recipe.photo.url)
+
+        .content
+          .header= @recipe.title
+
+          - if @recipe&.calories
+            .meta
+              span #{@recipe.calories} Calories
+
+          .description
+            = @recipe.description
+
+        .extra.content
+          span
+            | Chefs: #{@chefs.join(", ")}
+
+          - tags = (@recipe.tags.collect(&:name) rescue [])
+          - if tags.any?
+            span.right.floated
+              - tags.each do |tag|
+                .ui.label.blue
+                  = tag
+    - else
+      .ui.fluid.card
+        .image
+          = image_tag("https://media.giphy.com/media/3orieUe6ejxSFxYCXe/giphy.gif")
+        .content
+          .header
+            | We looked but we couldn't find the recipe you asked for!!!
