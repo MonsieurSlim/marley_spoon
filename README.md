@@ -28,3 +28,8 @@
 ### How to run the test suite
 - The test suite runs on `rspec`
 - run `bundle exec rspec`
+
+### Things to note
+- Notes on system dependency above (second item especially)
+- The API space and token currently only return 4 objects for the recipe entries. I have however proceeded with an assumption for when this is more, andhave setup to render 50 recipes per page on the list page.
+- The pagination option is displayed only if we ever get to 2 pages
