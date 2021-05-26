@@ -8,8 +8,9 @@
 - add necessary environment variables to `.env` (this only contains `CONTENTFUL_ACCESS_TOKEN` and `CONTENTFUL_SPACE_ID` for now)
 
 ### To boot the app
-- run `foreman start`
+- run `foreman start -f Procfile.dev` to use the development procfile
 - app should be available at `localhost:8080`
+- web server used is puma
 
 ### Ruby Version
 - 2.7.2
