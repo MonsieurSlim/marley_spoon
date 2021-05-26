@@ -22,7 +22,8 @@
 - This app doesn't use a database currently. It just consumes the Contentful API
 
 ### System dependencies
-- Most significant dependency would be `gem contentful`
+- Styling was done using [Semantic UI](https://semantic-ui.com/) ..added via CDN
+- Most significant dependency would be `gem contentful` [More details here](https://github.com/contentful/contentful.rb)
 - The decision to use this gem was made because it already maps out the interface of the Contentful API, making it unnecessary in my use case to develope my own micro-service/interface for that 
 
 ### How to run the test suite
